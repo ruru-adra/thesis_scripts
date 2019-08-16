@@ -6,6 +6,10 @@ snp_q100<- read.table("./data/finalSNP_q100.txt", header=T, sep="\t")
 snp_mr297<- read.table("./data/finalSNP_mr297.txt", header=T, sep="\t")
 snp_q76<- read.table("./data/finalSNP_q76.txt", header=T, sep="\t")
 
+#count SNP distance
+bali$diff<- ave(bali$pos, factor(bali$chr), FUN=function(x) c(NA, diff(x)))
+bali_qual<- filter(bali, diff >= 150)
+
 #select unique & specific column
 a_bali<- unique(select(snp_bali, snp_id, ref,alel))
 a_ph<- unique(select(snp_ph, snp_id, ref,alel))
