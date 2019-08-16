@@ -1,6 +1,7 @@
+#read data gene expression with FPKM values
 fmt_pcc<- read.table("fmt_for_pcc.txt", header=T, sep="\t", row.names = 1)
 
-
+#create function pcc
 flat_corr_mat<- function(cor_r, cor_p){
   library(tidyr)
   library(tibble)
@@ -16,4 +17,4 @@ corr_max<- rcorr(as.matrix(fmt_pcc[, 1:1394])) #calc corr(r) & pvalue(p)
 
 out_pcc<- flat_corr_mat(corr_max$r, corr_max$P) #to view in table
 
-pcc_r0.7<- filter(out_pcc, cor >= 0.7)
+pcc_r0.7<- filter(out_pcc, cor >= 0.7) #filter correlation value
