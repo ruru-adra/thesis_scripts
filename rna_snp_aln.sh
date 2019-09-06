@@ -9,5 +9,3 @@ java -jar /home/cbr14/bioinfo_sware/GenomeAnalysisTK.jar -T RealignerTargetCreat
 java -jar /home/cbr14/bioinfo_sware/GenomeAnalysisTK.jar -T IndelRealigner -R /home/cbr14/Desktop/IGV_data/irgsp_genome.fa -I $f -targetIntervals $f.intervals -o $f.realigned.bam -U ALLOW_N_CIGAR_READS;
 #java -jar /home/cbr14/bioinfo_sware/GenomeAnalysisTK.jar -T HaplotypeCaller -R /home/cbr14/Desktop/IGV_data/irgsp_genome.fa -I $f.realigned.bam -o $f.gatk.raw.vcf -nct 32 --genotyping_mode DISCOVERY -stand_call_conf 30 --min_mapping_quality_score 30 -U ALLOW_N_CIGAR_READS;
 done
-
-#-T HaplotypeCaller -R ../irgsp_genome.fa -I BaliBR.bam.fxmt.mkdup.addrep.bam.realigned.bam -o Bali.gatk.raw.vcf -nct 32 --genotyping_mode DISCOVERY -stand_call_conf 30 --min_mapping_quality_score 30 -U ALLOW_N_CIGAR_READS 
