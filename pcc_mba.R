@@ -1,5 +1,6 @@
 #input data 
-[image](https://github.com/ruru-adra/thesis_scripts/blob/master/input_data_pcc.png)
+![image]
+(https://github.com/ruru-adra/thesis_scripts/blob/master/input_data_pcc.png)
 
 
 
