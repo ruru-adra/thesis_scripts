@@ -24,3 +24,17 @@ fltr_grn2<- filter(grn, countNC == 0)
 fltr_grn3<- filter(grn, countNC == 1)
 ptl_grn<- rbind(fltr_grn, fltr_grn2, fltr_grn3)
 
+#transform wide to long
+t_tf<- t(m_tf)
+df_tf<- as.data.frame(t_tf)
+df_tf[]<- lapply(df_tf, as.character)
+colnames(df_tf)<- df_tf[1, ]
+df_tf<- df_tf[-1 ,]
+lst_tf<- df_tf %>% gather(df_tf, OsID, 1:141, na.rm=FALSE)
+clean_go_tf<- filter(lst_tf, OsID!="nc")
+write.table(clean_go_tf, "enr_go_reactome/clean_go_tf.txt", col.names=T, row.names=F, sep="\t", quote=F)
+
+# split, mutate & unnest- turn column into row by row
+r_ft<-folate_reactome %>%
+  mutate(OsID=strsplit(as.character(OsID), ";")) %>%
+  unnest(OsID)
