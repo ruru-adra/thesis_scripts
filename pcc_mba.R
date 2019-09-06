@@ -1,3 +1,7 @@
+#input data co-expression analysis
+https://github.com/ruru-adra/thesis_scripts/blob/master/input_data_pcc.png
+
+
 #read data gene expression with FPKM values
 fmt_pcc<- read.table("fmt_for_pcc.txt", header=T, sep="\t", row.names = 1)
 
