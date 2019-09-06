@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ###download data snpEff
 java -jar snpEff.jar download -v rice_rap201304
 
@@ -6,10 +8,8 @@ cat irgsp.gff irgsp.fa > genes.gff
 java -jar snpEff.jar build -gff3 -v IRGSP_1.0
 
 #annotate snp
-java -jar snpEff.jar -v IRGSP_1.0 snp_p_burung.hardfilter.vcf > ann_snp_pburung.vcf 
+java -jar snpEff.jar -v IRGSP_1.0 *snp.vcf > ann_snp*.vcf 
 
-##check vcf format
-java -jar SnpSift.jar vcfCheck ./data/IRGSP_1.0/amurat_annot.vcf 
 
 ##annotate many effects per line
 java -jar SnpSift.jar extractFields ./data/IRGSP_1.0/amurat_annot.vcf CHROM POS REF ALT "ANN[*].EFFECT" "ANN[*].GENE" > ./data/IRGSP_1.0/split_per_line2.txt
