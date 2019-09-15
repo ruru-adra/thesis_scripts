@@ -1,3 +1,7 @@
+library(dplyr)
+library(tidyr)
+library(stringr)
+
 #read table
 snp_bali<- read.table("./data/finalSNP_bali.txt", header=T, sep="\t")
 snp_ph<- read.table("./data/finalSNP_ph.txt", header=T, sep="\t")
@@ -6,14 +10,26 @@ snp_q100<- read.table("./data/finalSNP_q100.txt", header=T, sep="\t")
 snp_mr297<- read.table("./data/finalSNP_mr297.txt", header=T, sep="\t")
 snp_q76<- read.table("./data/finalSNP_q76.txt", header=T, sep="\t")
 
+#filter allele
+clean_bali<- filter(snp_bali, alel %in% c("A", "C", "G", "T"))
+
 #count SNP distance
 bali$diff<- ave(bali$pos, factor(bali$chr), FUN=function(x) c(NA, diff(x)))
-bali_qual<- filter(bali, diff >= 150)
-
-#filter genic snps with diff pos
-g_bali<- filter(g_bali, effect %in% c("missense_variant", "synonymous_variant", "3_prime_UTR_variant",
+bali_qual<- bali %>%
+            filter(diff >= 150) %>%
+            filter(alel %in% c("A", "C", "G", "T"))%>%
+            filter(status == "PASS") 
+            
+#filter genic snps
+g_bali<- filter(bali_qual, effect %in% c("missense_variant", "synonymous_variant", "3_prime_UTR_variant",
                                      "5_prime_UTR_variant", "intron_variant"))
+
+#create snpID
+g_bali$snpID<- paste(g_bali$chr, g_bali$pos, sep="_")
+           
+************************************************************************************************************
                 
+#create snp in genotype format               
 #select unique & specific column
 a_bali<- unique(select(snp_bali, snp_id, ref,alel))
 a_ph<- unique(select(snp_ph, snp_id, ref,alel))
@@ -25,6 +41,8 @@ a_qw<- unique(select(snp_q76, snp_id, ref,alel))
 #get total snp from 6 local var
 snp<- Reduce(function(x,y) merge(x, y, by = "snp_id", all.x = TRUE, all.y = TRUE),
                      list(a_bali, a_ph, a_mr, a_qr, a_mw, a_qw))
+                
+************************************************************************************************************
 
 #select private/unique alel
 snp$bali<- as.character(snp$bali)
@@ -59,4 +77,12 @@ snp$countNC<- rowSums(snp == "NC")
 ls_snp<- snp %>%
   filter(countNC == 5) %>%
   select(snpID, bali, ph, mrm16, q100, mr297, q76, countNC)
-
+                
+ ************************************************************************************************************
+ #filter & select flavonoid/folate snp
+                
+ #read flavonoid list
+ fv<- read.table("fv.txt", header=T, sep="\t", quote="")
+ ft<- read.table("folate.txt", header=T, sep="\t", quote="")
+ fv_bali<- merge(fv, genic_bali, by="OsID")
+ ft_bali<- merge(ft, genic_bali, by="OsID")
