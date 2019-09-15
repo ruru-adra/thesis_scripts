@@ -78,3 +78,14 @@ r_ft<-folate_reactome %>%
   mutate(OsID=strsplit(as.character(OsID), ";")) %>%
   unnest(OsID)
 
+****************************************************************************************
+
+#pathwayanalysis
+raw_reactome<- read.csv("~/Downloads/fv_reactome.csv")
+raw_reactome<- select(raw_reactome, Pathway.identifier, Pathway.name, 
+                      Submitted.entities.found, Entities.pValue, Entities.FDR)
+
+r<- raw_reactome %>%
+    mutate(edge_OsID=strsplit(as.character(edge_OsID), ";")) %>%
+    unnest(edge_OsID)
+
