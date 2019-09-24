@@ -24,10 +24,11 @@ Raw data of genomes and transcriptomes have been deposited in ENA database (http
 <h2 id="Second_Point_Header">Mapping reads to reference genomes using bwa</h2>
 Index the reference genome using bwa-index. Oryza japonica cv. Nipponbare was used as a reference genome. You can run this
 command:
-<pre style="color: silver; background: black;">bwa index nipponbare.fasta
+<pre style="color: silver; background: black;">bwa index nipponbare.fasta</pre>
 
-You can run mapping command:
-<pre style="color: silver; background: black;">$nohup sh snp_aln.sh
+You can map the paired-end reads using this command:
+<pre style="color: silver; background: black;">sh snp_aln.sh</pre>
+
 
 
 
