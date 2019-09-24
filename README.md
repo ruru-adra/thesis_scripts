@@ -30,6 +30,7 @@ You can map the paired-end reads using this command:
 <pre style="color: silver; background: black;">sh snp_aln.sh</pre>
 
 
-
+<h2 id="Third_Point_Header">SNP calling using GATK</h2>
+<pre style="color: silver; background: black;">sh snp_mining.sh</pre>
 
 
