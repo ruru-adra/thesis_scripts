@@ -26,7 +26,8 @@ Index the reference genome using bwa-index. Oryza japonica cv. Nipponbare was us
 command:
 <pre style="color: silver; background: black;">bwa index nipponbare.fasta
 
-You can run mapping commnd using `snp_aln.sh`
+You can run mapping command:
+<pre style="color: silver; background: black;">$nohup sh snp_aln.sh
 
 
 
