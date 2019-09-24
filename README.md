@@ -1,5 +1,5 @@
 # thesis_scripts
-Scripts/source code used for PhD thesis project.
+**Scripts/source code used for PhD thesis project**
 
 Contents:
 
