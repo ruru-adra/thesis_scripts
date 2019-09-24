@@ -1,7 +1,6 @@
 # thesis_scripts
 **Scripts/source code used for PhD thesis project**
 
-Contents:
 <div id="toc_container">
 <p class="toc_title">Contents</p>
 <ul class="toc_list">
@@ -16,9 +15,16 @@ Contents:
 </ul>
 </div>
 
+<h2 id="First_Point_Header">Raw dat</h2>
+Raw data of genomes and transcriptomes have been deposited in ENA database (https://www.ebi.ac.uk/ena/browse) under these accessions number: 
+PRJEB29070 (Genomes of pigmented rice)
+PRJEB32344 (Genomes of non-pigmented rice)
+PRJEB34340 (Transcriptomes of pigmented and non-pigmented rice)
+
+<pre style="color: silver; background: black;">-bash-4.2$ cd /home/CAM/$USER</pre>
+
+<h2 id="Second_Point_Header">Mapping reads to reference genomes using bwa</h2>
 
 
-**1. Raw data**
 
-Raw data of genomes and transcriptomes have been deposited in ENA database (https://www.ebi.ac.uk/ena/browse) under these accessions number:
 
