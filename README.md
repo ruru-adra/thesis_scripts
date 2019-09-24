@@ -15,13 +15,13 @@
 </ul>
 </div>
 
-<h2 id="First_Point_Header">Raw dat</h2>
+<h2 id="First_Point_Header">Raw data</h2>
 Raw data of genomes and transcriptomes have been deposited in ENA database (https://www.ebi.ac.uk/ena/browse) under these accessions number: 
-PRJEB29070 (Genomes of pigmented rice)
-PRJEB32344 (Genomes of non-pigmented rice)
-PRJEB34340 (Transcriptomes of pigmented and non-pigmented rice)
+<li>PRJEB29070 (Genomes of pigmented rice)</li>
+<li>PRJEB32344 (Genomes of non-pigmented rice)</li>
+<li>PRJEB34340 (Transcriptomes of pigmented and non-pigmented rice)</li>
 
-<pre style="color: silver; background: black;">-bash-4.2$ cd /home/CAM/$USER</pre>
+<pre style="color: silver; background: black;">
 
 <h2 id="Second_Point_Header">Mapping reads to reference genomes using bwa</h2>
 
