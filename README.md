@@ -14,6 +14,6 @@ Contents:
 
 
 
-1. Raw data
+##1. Raw data
 Raw data of genomes and transcriptomes have been deposited in ENA database (https://www.ebi.ac.uk/ena/browse) under these accessions number:
 
