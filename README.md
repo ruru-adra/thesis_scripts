@@ -38,5 +38,9 @@ Post processing for mapped reads in SAM format is required before SNPs calling. 
 SnpEff is one of the popular tools that used for SNPs annotation. But first, a reference gene annotation must be selected and index before the SNPs annotation processes. You can run SNPs annotation using this command:
 <pre style="color: silver; background: black;">sh snp_annotation.sh</pre>
 
+<h2 id="Fifth_Point_Header">SNPs filtering using R</h2>
+Filtering your SNPs is crucial to obtain only the high quality SNPs for downstream analysis. Several criteria and parameters
+have been performed by following the best practices from various publications. As the SNPs were called in large-scale format, filtering SNPs using R is essential. You can perform SNPs filtering by following this script:
+<pre style="color: silver; background: black;">snp_filtering.R</pre>
 
 
