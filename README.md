@@ -6,9 +6,9 @@
 <ul class="toc_list">
 <li><a href="#First_Point_Header">1 Clean Raw data</>
 <li><a href="#Second_Point_Header">2 Mapping reads to reference genomes using bwa</a></li>
-<li><a href="#Third_Point_Header">3 SNP calling using GATK</a></li>
-<li><a href="#Fourth_Point_Header">4 SNP annotation using SnpEff</a></li>
-<li><a href="#Fifth_Point_Header">5 SNP filtering using R</a></li>
+<li><a href="#Third_Point_Header">3 SNPs calling using GATK</a></li>
+<li><a href="#Fourth_Point_Header">4 SNPs annotation using SnpEff</a></li>
+<li><a href="#Fifth_Point_Header">5 SNPs filtering using R</a></li>
 <li><a href="#Sixth_Point_Header">6 Total read counts from alignment using htseq-count</a></li>
 <li><a href="#Seventh_Point_Header">7 Transcripts assembly using Cufflinks</a></li>
  <li><a href="#Eighth_Point_Header">8 Genes co-expression network analysis</a></li>
@@ -30,8 +30,13 @@ You can map the paired-end reads using this command:
 <pre style="color: silver; background: black;">sh snp_aln.sh</pre>
 
 
-<h2 id="Third_Point_Header">SNP calling using GATK</h2>
+<h2 id="Third_Point_Header">SNPs calling using GATK</h2>
 Post processing for mapped reads in SAM format is required before SNPs calling. You can run this command:
 <pre style="color: silver; background: black;">sh snp_mining.sh</pre>
+
+<h2 id="Fourth_Point_Header">SNPs annotation using SnpEff</h2>
+SnpEff is one of the popular tools that used for SNPs annotation. But first, a reference gene annotation must be selected and index before the SNPs annotation processes. You can run SNPs annotation using this command:
+<pre style="color: silver; background: black;">sh snp_annotation.sh</pre>
+
 
 
