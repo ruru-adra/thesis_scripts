@@ -21,7 +21,6 @@ Raw data of genomes and transcriptomes have been deposited in ENA database (http
 <li>PRJEB32344 (Genomes of non-pigmented rice)</li>
 <li>PRJEB34340 (Transcriptomes of pigmented and non-pigmented rice)</li>
 
-<pre style="color: silver; background: black;">
 
 <h2 id="Second_Point_Header">Mapping reads to reference genomes using bwa</h2>
 
