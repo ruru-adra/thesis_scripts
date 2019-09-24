@@ -31,6 +31,7 @@ You can map the paired-end reads using this command:
 
 
 <h2 id="Third_Point_Header">SNP calling using GATK</h2>
+Post processing for mapped reads in SAM format is required before SNPs calling. You can run this command:
 <pre style="color: silver; background: black;">sh snp_mining.sh</pre>
 
 
