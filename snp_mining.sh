@@ -9,8 +9,6 @@ java -jar /home/cmdv/bioinfo_sware/picard-tools-1.141/picard.jar AddOrReplaceRea
 java -jar /home/cmdv/bioinfo_sware/picard-tools-1.141/picard.jar BuildBamIndex INPUT=$f.fxmt.mkdup.addrep.bam;
 java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T RealignerTargetCreator -I $f.fxmt.mkdup.addrep.bam -R ../../genome/IRGSP-1.0_genome.fasta -o $f.intervals -nt 16;
 java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T IndelRealigner -R ../../genome/IRGSP-1.0_genome.fasta -I $f.fxmt.mkdup.addrep.bam -targetIntervals $f.intervals -o $f.realn.bam;
-samtools merge $f_merged_realn.bam *$f.realn.bam;
-samtools index $f_merged_realn.bam;
 java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T HaplotypeCaller -R ../reference/IRGSP-1.0_genome.fasta -I $f.merged.bam -o $f.gatk.raw.vcf -nct 32 --genotyping_mode DISCOVERY -stand_call_conf 30 -stand_emit_conf 10;
 java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T SelectVariants -R ../reference/IRGSP-1.0_genome.fasta -V $f.gatk.raw.vcf -selectType SNP -o $f.snp.gatk.raw.vcf;
 java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T SelectVariants -R ../reference/IRGSP-1.0_genome.fasta -V $f.gatk.raw.vcf -selectType INDEL -o $f.indel.snp.gatk.raw.vcf;
