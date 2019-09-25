@@ -12,8 +12,8 @@ java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T IndelRealigner -
 samtools merge $f_merged_realn.bam *$f.realn.bam;
 samtools index $f_merged_realn.bam;
 java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T HaplotypeCaller -R ../reference/IRGSP-1.0_genome.fasta -I $f.merged.bam -o $f.gatk.raw.vcf -nct 32 --genotyping_mode DISCOVERY -stand_call_conf 30 -stand_emit_conf 10;
-java -Xmx1g -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T SelectVariants -R ../reference/IRGSP-1.0_genome.fasta -V $f.gatk.raw.vcf -selectType SNP -o $f.snp.gatk.raw.vcf;
-java -Xmx1g -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T SelectVariants -R ../reference/IRGSP-1.0_genome.fasta -V $f.gatk.raw.vcf -selectType INDEL -o $f.indel.snp.gatk.raw.vcf;
+java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T SelectVariants -R ../reference/IRGSP-1.0_genome.fasta -V $f.gatk.raw.vcf -selectType SNP -o $f.snp.gatk.raw.vcf;
+java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T SelectVariants -R ../reference/IRGSP-1.0_genome.fasta -V $f.gatk.raw.vcf -selectType INDEL -o $f.indel.snp.gatk.raw.vcf;
 java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T VariantFiltration -R ../reference/IRGSP-1.0_genome.fasta -V $f.snp.gatk.raw.vcf -o $f.snp.gatk.hardfilter.vcf --filterExpression "QD < 2.0 ||MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0" --filterName "riceSNP";
 java -jar /home/cmdv/bioinfo_sware/GATK/GenomeAnalysisTK.jar -T VariantFiltration -R ../reference/IRGSP-1.0_genome.fasta -V $f.indel.snp.gatk.raw.vcf --filterExpression "QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0" --filterName "indel_gatk" -o $f.indel.gatk.hardfilter.vcf;
 done
