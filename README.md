@@ -67,6 +67,10 @@ Unzip the GTF file, and you can use this command to run htseq-count programme:
 Genes co-expression network analysis measures the correlations between genes from genes expressions or microarray data. The correlation between genes can be measured using coefficient model such as Pearson's, Spearman and Mutual Information.
 Firstly, the input data with gene expressions value (i.e. FPKM) must be formated as below:
 <img src="input_data_pcc.png">
+First header (row) represents gene identifier. Column 1 represents list of samples. Second row and below represent the FPKM value for each gene in each sample, if they are expressed. You can run co-expression analysis using this script:
+<pre style="color: silver; background: black;">pcc_mba.R</pre>
+
+
 
 
 
