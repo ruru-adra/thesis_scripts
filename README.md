@@ -27,12 +27,14 @@ command:
 <pre style="color: silver; background: black;">bwa index nipponbare.fasta</pre>
 
 You can map the paired-end reads using this command:
-<pre style="color: silver; background: black;">sh snp_aln.sh</pre>
+<pre style="color: silver; background: black;">sh genome_aln.sh</pre>
 
 
 <h2 id="Third_Point_Header">SNPs calling using GATK</h2>
 Post processing for mapped reads in SAM format is required before SNPs calling. You can run this command:
 <pre style="color: silver; background: black;">sh snp_mining.sh</pre>
+Post processing and SNPs calling from transcriptome mapped reads can be performed using this command:
+<pre style="color: silver; background: black;">sh rna_snp_aln.sh</pre>
 
 <h2 id="Fourth_Point_Header">SNPs annotation using SnpEff</h2>
 SnpEff is one of the popular tools that used for SNPs annotation. But first, a reference gene annotation must be selected and index before the SNPs annotation processes. You can run SNPs annotation using this command:
@@ -50,6 +52,10 @@ Reads mapping can be performed using tophat2. Make sure your genome index file i
 <pre style="color: silver; background: black;">sh rna_aln.sh</pre>
 
 <h2 id="Seventh_Point_Header">Transcripts assembly using Cufflinks</h2>
+Transcripts assembly was performed using Cufflinks, which also can estimate transcripts abundance and then used for differential expression genes. The input data is the mapped RNA-seq reads in BAM format. You can run transcripts assembly using this command:
+<pre style="color: silver; background: black;">sh cufflinks_assembly.sh</pre>
+
+
 
 
 
