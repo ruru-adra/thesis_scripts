@@ -63,7 +63,10 @@ HTSeq is a tool for counting the reads that are successfully mapped to the genom
 Unzip the GTF file, and you can use this command to run htseq-count programme:
 <pre style="color: silver; background: black;">sh htseq_count.sh</pre>
 
-
+<h2 id="Ninth_Point_Header">Genes co-expression network analysis</h2>
+Genes co-expression network analysis measures the correlations between genes from genes expressions or microarray data. The correlation between genes can be measured using coefficient model such as Pearson's, Spearman and Mutual Information.
+Firstly, the input data with gene expressions value (i.e. FPKM) must be formated as below:
+<img src="input_data_pcc.png">
 
 
 
