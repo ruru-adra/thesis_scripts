@@ -58,10 +58,10 @@ Transcripts assembly was performed using Cufflinks, which also can estimate tran
 
 <h2 id="Eighth_Point_Header">Total read counts from aligmet using HTSeq</h2>
 HTSeq is a tool for counting the reads that are successfully mapped to the genomes. Firstly, you need the genome features in gff format. It can be downloade using the following command:
-<pre style="color: silver; background: black;"wget https://rapdb.dna.affrc.go.jp/download/archive/irgsp1/IRGSP-1.0_representative_2019-08-29.tar.gz</pre>
+<pre style="color: silver; background: black;">wget https://rapdb.dna.affrc.go.jp/download/archive/irgsp1/IRGSP-1.0_representative_2019-08-29.tar.gz</pre>
 
 Unzip the GTF file, and you can use this command to run htseq-count programme:
-<pre style="color: silver; background: black;">sh htseq_count.sh/pre>
+<pre style="color: silver; background: black;">sh htseq_count.sh</pre>
 
 
 
