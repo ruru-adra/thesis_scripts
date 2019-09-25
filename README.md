@@ -10,8 +10,9 @@
 <li><a href="#Fourth_Point_Header">4 SNPs annotation using SnpEff</a></li>
 <li><a href="#Fifth_Point_Header">5 SNPs filtering using R</a></li>
 <li><a href="#Sixth_Point_Header">6 Mapping reads (transcriptome) to reference genome using bowtie2 & tophat2</a></li>
- <li><a href="#Seventh_Point_Header">7 Transcripts assembly using Cufflinks</a></li>
- <li><a href="#Eighth_Point_Header">8 Genes co-expression network analysis</a></li>
+<li><a href="#Seventh_Point_Header">7 Transcripts assembly using Cufflinks</a></li>
+ <li><a href="#Eighth_Point_Header">8 Total read counts from aligmet using HTSeq</a></li>
+<li><a href="#Ninth_Point_Header">9 Genes co-expression network analysis</a></li>
 </ul>
 </div>
 
@@ -54,6 +55,14 @@ Reads mapping can be performed using tophat2. Make sure your genome index file i
 <h2 id="Seventh_Point_Header">Transcripts assembly using Cufflinks</h2>
 Transcripts assembly was performed using Cufflinks, which also can estimate transcripts abundance and then used for differential expression genes. The input data is the mapped RNA-seq reads in BAM format. You can run transcripts assembly using this command:
 <pre style="color: silver; background: black;">sh cufflinks_assembly.sh</pre>
+
+<h2 id="Eighth_Point_Header">Total read counts from aligmet using HTSeq</h2>
+HTSeq is a tool for counting the reads that are successfully mapped to the genomes. Firstly, you need the genome features in gff format. It can be downloade using the following command:
+<pre style="color: silver; background: black;"wget https://rapdb.dna.affrc.go.jp/download/archive/irgsp1/IRGSP-1.0_representative_2019-08-29.tar.gz</pre>
+
+Unzip the GTF file, and you can use this command to run htseq-count programme:
+<pre style="color: silver; background: black;">sh htseq_count.sh/pre>
+
 
 
 
